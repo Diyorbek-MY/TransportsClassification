@@ -3,10 +3,12 @@ from fastai.vision.all import *
 from fastai.learner import load_learner
 import pathlib
 import plotly.express as px
-
+import platform 
 # Fix compatibility for Windows
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+# temp = pathlib.PosixPath
+# pathlib.PosixPath = pathlib.WindowsPath
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
 # App title
 st.title("Transport Classification Model")
